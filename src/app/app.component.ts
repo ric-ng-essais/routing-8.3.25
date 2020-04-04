@@ -10,7 +10,7 @@ export class AppComponent implements OnInit, OnDestroy {
   aRouterLink4: Array<string> = [];
   sErrMessage = '';
 
-  aRouterLinkActiveCSSClasses = ['router-link-active'];
+  aRouterLinkActiveCSSClasses = ['router-link-active']; //
 
   constructor(private oRouter: Router) {
     console.log('ICI constructor de AppModule - AppComponent !!!');
