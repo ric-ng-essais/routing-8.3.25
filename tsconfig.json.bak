@@ -1,0 +1,56 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+
+    "target": "es2015",
+    "module": "esnext",
+    "moduleResolution": "node", //<< Nécessaire et Ne pas mettre le mode : "classic", pour les besoins d'Angular !!
+    //"moduleResolution": "classic", //<< NON, ne pas, car ferait planter la compil. !
+    //"traceResolution":true, //Pour avoir le détail du cheminement lors de la résolution de l'emplacement des fichiers modules à importer.
+
+
+    //RAPPEL: paths, en combinaison avec baseUrl, sert "juste" pour la résolution des fichiers modules à importer précisés sans chemin relatif.
+    //      En gros sert à trouver l'emplacement des fichiers(modules) dont on demande l'import, mais pour lesquels on n'a pas précisé de chemin relatif !
+    "baseUrl": "./", //<<<<<<<<<<<
+    "paths": { //<<<< NE PAS le déplacer dans tsconfig.app.json, car, bien que exéc. OK, tslint a besoin qu'il soit ICI.
+      "@MyLibDirectives*" : ["node_modules/@rick.info.dev/my-angular-lib/_Directives*"], //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+      "@MyLib*" : ["node_modules/@rick.info.dev/my-angular-lib*"] //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+      ,"#ModulesLib_ModuleA_Services_Interfaces*": ["src/_ModulesLib/ModuleA/_Services/_Interfaces*"]
+      ,"#ModulesLib_ModuleA_Services*": ["src/_ModulesLib/ModuleA/_Services*"]
+      //,"#ModulesLib_ModuleA_Compos*": ["src/_ModulesLib/ModuleA/_Compos*"]
+      ,"#ModulesLib_ModuleA*": ["src/_ModulesLib/ModuleA*"]
+      ,"#ModulesLib*": ["src/_ModulesLib*"]
+
+    },
+
+    "typeRoots": [ //<< A priori pas nécessaire !? mais je laisse au cas où un jour ! ça interviendrait clairement.
+      "node_modules/@types"
+    ],
+
+
+    "declaration": false,
+
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}

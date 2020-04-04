@@ -1,0 +1,42 @@
+<div class="asides-divs">
+  <div>
+    <a routerLink="compo1">AppModule - Compo1</a>
+  </div>
+  <br>
+  <div>
+    <a routerLink="myModule1/compo1">Charger : Module1 - Compo1</a>
+  </div>
+  <div>
+    <a routerLink="myModule1/compo2">Charger : Module1 - Compo2</a>
+  </div>
+
+  <div id="div_inputs_compo3">
+    <a [routerLink]="aRouterLink4"> <!-- aRouterLink4 mis à jour dans le .ts, suite à changement de l'un de 2 input ci-dessous -->
+      Charger : Module1 - Compo3
+    </a><br>
+    <!-- $event.target  représente le champ en question, ayant donc subit un évènement -->
+    <label>avec Param1: </label>
+      <input #inputForModule1Compo3Param1
+        (blur)="updateRouterLink4([$event.target.value, inputForModule1Compo3Param2.value])"/><br>
+    <label>et Param2: </label>
+      <input #inputForModule1Compo3Param2
+        (blur)="updateRouterLink4([inputForModule1Compo3Param1.value, $event.target.value])"/><br>
+  </div>
+
+  <div id="div_inputs_compo3">
+    <button
+      (click)="loadModule1Compo3WithUrlParams([_inputForModule1Compo3Param1.value, _inputForModule1Compo3Param2.value])"
+    >
+      Charger : Module1 - Compo3
+    </button>
+    <label>avec Param1: </label><input #_inputForModule1Compo3Param1/><br>
+    <label>et Param2: </label><input #_inputForModule1Compo3Param2/><br>
+  </div>
+  <br>
+</div>
+
+
+<div class="asides-divs">
+  <label>router-outlet 1, composant chargé :</label>
+  <router-outlet></router-outlet>
+</div>
