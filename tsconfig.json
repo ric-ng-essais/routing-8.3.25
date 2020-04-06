@@ -1,20 +1,19 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
 
     "target": "es2015",
     "module": "esnext",
-    "moduleResolution": "node", //<< Nécessaire et Ne pas mettre le mode : "classic", pour les besoins d'Angular !!
+    "moduleResolution": "node", //<< Nï¿½cessaire et Ne pas mettre le mode : "classic", pour les besoins d'Angular !!
     //"moduleResolution": "classic", //<< NON, ne pas, car ferait planter la compil. !
-    //"traceResolution":true, //Pour avoir le détail du cheminement lors de la résolution de l'emplacement des fichiers modules à importer.
+    //"traceResolution":true, //Pour avoir le dï¿½tail du cheminement lors de la rï¿½solution de l'emplacement des fichiers modules ï¿½ importer.
 
 
-    //RAPPEL: paths, en combinaison avec baseUrl, sert "juste" pour la résolution des fichiers modules à importer précisés sans chemin relatif.
-    //      En gros sert à trouver l'emplacement des fichiers(modules) dont on demande l'import, mais pour lesquels on n'a pas précisé de chemin relatif !
+    //RAPPEL: paths, en combinaison avec baseUrl, sert "juste" pour la rï¿½solution des fichiers modules ï¿½ importer prï¿½cisï¿½s sans chemin relatif.
+    //      En gros sert ï¿½ trouver l'emplacement des fichiers(modules) dont on demande l'import, mais pour lesquels on n'a pas prï¿½cisï¿½ de chemin relatif !
     "baseUrl": "./", //<<<<<<<<<<<
-    "paths": { //<<<< NE PAS le déplacer dans tsconfig.app.json, car, bien que exéc. OK, tslint a besoin qu'il soit ICI.
+    "paths": { //<<<< NE PAS le dï¿½placer dans tsconfig.app.json, car, bien que exï¿½c. OK, tslint a besoin qu'il soit ICI.
       "@MyLibDirectives*" : ["node_modules/@rick.info.dev/my-angular-lib/_Directives*"], //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
       "@MyLib*" : ["node_modules/@rick.info.dev/my-angular-lib*"] //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -26,7 +25,7 @@
 
     },
 
-    "typeRoots": [ //<< A priori pas nécessaire !? mais je laisse au cas où un jour ! ça interviendrait clairement.
+    "typeRoots": [ //<< A priori pas nï¿½cessaire !? mais je laisse au cas oï¿½ un jour ! ï¿½a interviendrait clairement.
       "node_modules/@types"
     ],
 
