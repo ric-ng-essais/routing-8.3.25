@@ -46,6 +46,7 @@
     <!-- aRouterLink4 restera un tableau vide si les 2 input en question ne sont pas renseignés -->
     <a
        [routerLink]="aRouterLink4"
+       [queryParams]="oRouterLink4_QueryParams"
        style="font-weight:bold;"
        (click) = 'checkRouterLinkParamsValid()'
     >
@@ -53,24 +54,36 @@
     </a><br>
 
     <!-- $event.target  représente le champ en question, ayant donc subit l'évènement -->
-    <label>avec Param1: </label>
+    <label>avec Param1 in url path: </label>
       <input #inputForModule1Compo3Param1
         (blur)="updateRouterLink4([$event.target.value, inputForModule1Compo3Param2.value])"/><br>
-    <label>et Param2: </label>
+    <label>et Param2 in url path: </label>
       <input #inputForModule1Compo3Param2
         (blur)="updateRouterLink4([inputForModule1Compo3Param1.value, $event.target.value])"/><br>
+
+    <hr>
+    <label>ET avec URL QueryParam1 : </label>
+      <input #inputForModule1Compo3QueryParam1
+        (blur)="updateRouterLink4_QueryParams([$event.target.value, inputForModule1Compo3QueryParam2.value])"/><br>
+    <label>et URL QueryParam2 : </label>
+      <input #inputForModule1Compo3QueryParam2
+      (blur)="updateRouterLink4_QueryParams([inputForModule1Compo3QueryParam1.value, $event.target.value])"/><br>
   </div>
 
   <div id="div2_inputs_compo3"><!-- Via click <button> et navigate() -->
     <button
       (click) = "loadModule1Compo3WithUrlParams(
-                 [_inputForModule1Compo3Param1.value, _inputForModule1Compo3Param2.value]
+                 [_inputForModule1Compo3Param1.value, _inputForModule1Compo3Param2.value],
+                 [_inputForModule1Compo3QueryParam1.value, _inputForModule1Compo3QueryParam2.value]
       )"
     >
       Charger : Module1 - Compo3
     </button>
-    <label>avec Param1: </label><input #_inputForModule1Compo3Param1/><br>
-    <label>et Param2: </label><input #_inputForModule1Compo3Param2/><br>
+    <label>avec Param1 in url path: </label><input #_inputForModule1Compo3Param1/><br>
+    <label>et Param2 in url path: </label><input #_inputForModule1Compo3Param2/><br>
+    <hr>
+    <label>ET avec URL QueryParam1 : </label><input #_inputForModule1Compo3QueryParam1/><br>
+    <label>et URL QueryParam2 : </label><input #_inputForModule1Compo3QueryParam2/><br>
   </div>
   <br>
 </div>

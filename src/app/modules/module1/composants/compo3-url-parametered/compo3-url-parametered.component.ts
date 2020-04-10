@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-compo3-url-parametered',
@@ -11,6 +12,12 @@ export class Compo3UrlParameteredComponent implements OnInit, OnDestroy {
   sUrlParam1: string;
   sUrlParam2: string;
 
+  sUrlQueryParam1: string;
+  sUrlQueryParam2: string;
+
+  private _oParamsSubscription: Subscription; //Pour pouvoir détruire les souscriptions lors du ngDestroy !
+  private _oQueryParamsSubscription: Subscription;
+
   constructor(private oActivatedRoute: ActivatedRoute) {
     console.log('\n\n---------------------------------\n\n');
     console.log('ICI constructor de Module1 - Compo3 !!!');
@@ -18,6 +25,10 @@ export class Compo3UrlParameteredComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log('ICI ngOnInit de Module1 - Compo3 !!!');
+
+    this._updateQueryParamsBySubscribe(); // Pour récup. des paramètres situés après "?" dans l'URL.
+
+    // ----------------------------
 
     // Méthode préférable, car là au moins, on est certain d'avoir this.sUrlParam1 et this.sUrlParam2
     // toujours à jour, en cas de changement de valeur des params dans l'URL.
@@ -31,7 +42,7 @@ export class Compo3UrlParameteredComponent implements OnInit, OnDestroy {
   // Cette façon de faire prémunit du souci causé par l'utilisation de this.oActivatedRoute.snapshot,
   // et permet de s'assurer que la lecture des params de l'URL est toujours à jour.
   private _updateParamsBySubscribe(): void {
-    this.oActivatedRoute.paramMap.subscribe((poParams) => {
+    this._oParamsSubscription = this.oActivatedRoute.paramMap.subscribe((poParams) => {
       console.log('\n..........................\n');
       this.sUrlParam1 = poParams.get('parametre1');
       this.sUrlParam2 = poParams.get('parametre2');
@@ -97,6 +108,18 @@ export class Compo3UrlParameteredComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     console.log('ICI ngOnDestroy de Module1 - Compo3 !!!');
+    this._oParamsSubscription.unsubscribe();
+    this._oQueryParamsSubscription.unsubscribe();
+  }
+
+
+
+  private _updateQueryParamsBySubscribe() {
+    this._oQueryParamsSubscription = this.oActivatedRoute.queryParamMap.subscribe((poQueryParams) => {
+      console.log('\n..........................\n');
+      this.sUrlQueryParam1 = poQueryParams.get('MyQueryParam1');
+      this.sUrlQueryParam2 = poQueryParams.get('MyQueryParam2');
+    });
   }
 
 }

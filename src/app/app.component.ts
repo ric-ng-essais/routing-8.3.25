@@ -1,6 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
+interface IWithQueryParams {
+  queryParams: {MyQueryParam1: string, MyQueryParam2: string};
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit, OnDestroy {
   aRouterLink4: Array<string> = [];
+  oRouterLink4_QueryParams: object;
   sErrMessage = '';
 
   aRouterLinkActiveCSSClasses = ['router-link-active'];
@@ -24,9 +29,13 @@ export class AppComponent implements OnInit, OnDestroy {
   // et paParams[1] valant la value ACTUALISÉE de #_inputForModule1Compo3Param2.
   // Pas besoin de (blur) ici, car le (click) sur le <button> semble forcer la
   // MAJ de la valeur des tempalte vars désignant les <input> en question.
-  loadModule1Compo3WithUrlParams(paParams: Array<string>): void {
+  //
+  loadModule1Compo3WithUrlParams(paParams: Array<string>, paQueryParams: Array<string>): void {
     if (paParams[0].trim() !== '' && paParams[1].trim() !== '') {
-      this.oRouter.navigate( this._getModule1Compo3UrlParams(paParams) );
+      this.oRouter.navigate(
+          this._getModule1Compo3UrlParams(paParams), //Chemin dans l'URL.
+          this._getModule1Compo3UrlQueryParams(paQueryParams) //Paramètres dans l'URL.
+      );
     } else {
       this._showErrMessageMissingParam1EtParam2();
     }
@@ -62,6 +71,10 @@ export class AppComponent implements OnInit, OnDestroy {
       this._showErrMessageMissingParam1EtParam2();
     }
   }
+  updateRouterLink4_QueryParams(paQueryParams: Array<string>) {
+    this.oRouterLink4_QueryParams = this._getModule1Compo3UrlQueryParams(paQueryParams).queryParams;
+    console.log(this.oRouterLink4_QueryParams);
+  }
 
 
   // @return {Array<string>}
@@ -73,6 +86,10 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   private _getModule1Compo3SubPath(): string {
     return('myModule1/compo3');
+  }
+
+  private _getModule1Compo3UrlQueryParams(paQueryParams: Array<string>): IWithQueryParams {
+    return( {queryParams: {MyQueryParam1: paQueryParams[0], MyQueryParam2: paQueryParams[1]}} );
   }
 
 
