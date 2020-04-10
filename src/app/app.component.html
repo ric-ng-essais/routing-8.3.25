@@ -49,8 +49,9 @@
        [queryParams]="oRouterLink4_QueryParams"
        style="font-weight:bold;"
        (click) = 'checkRouterLinkParamsValid()'
+       class="module1-compo3-where-to-click-to-send-params"
     >
-      Charger : Module1 - Compo3
+      Charger : Module1 - Compo3 &nbsp;&nbsp;<small>&nbsp;&nbsp;(by routerLink)</small>
     </a><br>
 
     <!-- $event.target  représente le champ en question, ayant donc subit l'évènement -->
@@ -76,8 +77,9 @@
                  [_inputForModule1Compo3Param1.value, _inputForModule1Compo3Param2.value],
                  [_inputForModule1Compo3QueryParam1.value, _inputForModule1Compo3QueryParam2.value]
       )"
+      class="module1-compo3-where-to-click-to-send-params"
     >
-      Charger : Module1 - Compo3
+      Charger : Module1 - Compo3&nbsp;&nbsp;<small>&nbsp;&nbsp;(by navigate(...))</small>
     </button>
     <label>avec Param1 in url path: </label><input #_inputForModule1Compo3Param1/><br>
     <label>et Param2 in url path: </label><input #_inputForModule1Compo3Param2/><br>
