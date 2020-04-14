@@ -1,3 +1,16 @@
 :host {
   background: gold;
 }
+
+.choice-quit-route-oui {
+  background: greenyellow;
+}
+.choice-quit-route-non {
+  background: rgb(240, 115, 0);
+}
+.message {
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+}

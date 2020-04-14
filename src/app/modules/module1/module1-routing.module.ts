@@ -6,6 +6,9 @@ import { Compo2Component } from './composants/compo2/compo2.component';
 import { NotFoundCompoComponent } from './composants/not-found-compo/not-found-compo.component';
 import { Compo3UrlParameteredComponent } from './composants/compo3-url-parametered/compo3-url-parametered.component';
 
+import { QuitRouteGuard } from './gardes/quit-route.guard';
+
+
 
 const routes: Routes = [ // Routes évaluées dans l'ordre.
   {
@@ -14,7 +17,8 @@ const routes: Routes = [ // Routes évaluées dans l'ordre.
   },
   {
     path: 'compo2',
-    component: Compo2Component // Composant compo2, du Module1 et non de AppModule !
+    component: Compo2Component, // Composant compo2, du Module1 et non de AppModule !
+    canDeactivate: [QuitRouteGuard]
   },
   {
     path: 'compo3/:parametre1/:parametre2',

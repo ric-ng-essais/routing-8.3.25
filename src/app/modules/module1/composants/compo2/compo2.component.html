@@ -4,3 +4,22 @@ Module1 - Composant 2<br>
 <button (click)="goToAppModuleCompo2()">Aller à la route AppModule - Compo2</button><br><br>
 
 <button (click)="goToRoot()">Aller à la racine</button><br>
+
+<br>
+<div [ngClass]="this.getQuitRouteChoice_CSSClassName()">
+  Autoriser la sortie de la présente Route <i>(id choix={{this.sQuitRouteChoice_ID}})</i> ?<br>
+
+  <input type="radio" value="{{this.getQuitRouteChoiceOUI_ID()}}" name="autorise_sortie_route"
+    [(ngModel)] = "this.sQuitRouteChoice_ID"
+  />{{this.getQuitRouteChoiceLabelById(this.getQuitRouteChoiceOUI_ID())}}
+
+  <input type="radio" value="{{this.getQuitRouteChoiceNON_ID()}}" name="autorise_sortie_route"
+    [(ngModel)] = "this.sQuitRouteChoice_ID"
+  />{{this.getQuitRouteChoiceLabelById(this.getQuitRouteChoiceNON_ID())}}
+
+  <div class='message' *ngIf='this.sMessage!==""' [ngClass]="this.getQuitRouteChoice_CSSClassName()">
+      <br>{{this.sMessage}}
+  </div>
+
+
+</div>

@@ -6,6 +6,7 @@ import { Compo1Component } from './composants/compo1/compo1.component';
 import { Compo2Component } from './composants/compo2/compo2.component';
 import { NotFoundCompoComponent } from './composants/not-found-compo/not-found-compo.component';
 import { Compo3UrlParameteredComponent } from './composants/compo3-url-parametered/compo3-url-parametered.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { Compo3UrlParameteredComponent } from './composants/compo3-url-parameter
 
   imports: [
     CommonModule,
-    Module1RoutingModule
+    Module1RoutingModule,
+    FormsModule
   ]
 })
 export class Module1Module {

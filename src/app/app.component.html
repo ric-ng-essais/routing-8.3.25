@@ -27,6 +27,14 @@
     >Charger : AppModule - Compo2 Bis</button>
   </div>
 
+  <br><br>
+  <div>
+    <button id="connexion-btn" (click)="this.onClickConnexion()">{{this.getConnexionButtonLabel()}}</button><br>
+    <button routerLink="membersPrivateZone"
+      (click)="this.onDemandeAccesToPrivateMembersZone()"
+    >Accéder à la zone des membres connectés</button>
+  </div>
+
 </div>
 
 
