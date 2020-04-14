@@ -19,13 +19,13 @@ export class UserConnexionService implements IUserConnexionService {
     return(this._getCurrentUserConnexionStateValue() === this._sCurrentUserConnectedStateValue);
   }
   private _getCurrentUserConnexionStateValue(): string | null {
-    return( sessionStorage.getItem(this._sCurrentUserConnectedKey) );
+    return( window.sessionStorage.getItem(this._sCurrentUserConnectedKey) );
   }
   connectCurrentUser(): void {
-    sessionStorage.setItem(this._sCurrentUserConnectedKey, this._sCurrentUserConnectedStateValue);
+    window.sessionStorage.setItem(this._sCurrentUserConnectedKey, this._sCurrentUserConnectedStateValue);
   }
   disconnectCurrentUser(): void {
-    sessionStorage.setItem(this._sCurrentUserConnectedKey, this._sCurrentUserDisconnectedStateValue);
+    window.sessionStorage.setItem(this._sCurrentUserConnectedKey, this._sCurrentUserDisconnectedStateValue);
   }
 
 }
