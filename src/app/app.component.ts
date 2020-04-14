@@ -34,6 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private oUserConnexionService: IUserConnexionService
   ) {
     console.log('ICI constructor de AppModule - AppComponent !!!');
+    console.log(this.oUserConnexionService);
   }
 
 
