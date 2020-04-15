@@ -73,8 +73,7 @@ const routes: Routes = [ // ATTENTION, les routes sont évaluées dans l'ordre,
       {
         path: 'membersPrivateZone', // Chemin total = '' + '/membersPrivateZone'
         component: OnlyForConnectedUserComponent,
-        //canActivate: [OnlyForConnectedUsersGuard]
-        outlet: "r2"
+        canActivate: [OnlyForConnectedUsersGuard]
       },
 
     ]
@@ -93,6 +92,13 @@ const routes: Routes = [ // ATTENTION, les routes sont évaluées dans l'ordre,
   {
     path: 'test-multi-router-outlet',
     loadChildren: './modules/module3-multi-ro/module3-multi-ro.module#Module3MultiROModule'
+  },
+
+
+  {
+    path: 'membersPrivateZon',
+    component: OnlyForConnectedUserComponent,
+    outlet: "r2"
   },
 
 

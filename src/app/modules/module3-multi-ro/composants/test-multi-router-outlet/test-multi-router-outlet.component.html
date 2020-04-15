@@ -1,16 +1,14 @@
-<button
-  routerLink="composant0_DuModule3"
-  (click)="loadComponent()"
- >
-  Charge
-</button>
-
-<fieldset>
+<!-- <fieldset>
   <legend> router-outlet 1, du module chargé (module3) </legend>
   <router-outlet name="PourRouterOutlet_1"></router-outlet>
 </fieldset>
 <fieldset>
   <legend> router-outlet 2, du module chargé (module3) </legend>
   <router-outlet name="xx"></router-outlet>
-</fieldset>
+</fieldset> -->
+
+
+<div>
+  <a [routerLink]='[{ outlets: { xx: ["toto"] } }]'>MEMB</a>
+</div>
 

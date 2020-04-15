@@ -5,6 +5,9 @@ import { TestMultiRouterOutletComponent } from './composants/test-multi-router-o
 import { Compo30Component } from './composants/compo30/compo30.component';
 
 
+import { OnlyForConnectedUserComponent } from 'src/app/composants/onlyForConnectedUser/onlyForConnectedUser.component';
+
+
 const routes: Routes = [ // Routes évaluées dans l'ordre.
   {
     path: '',
@@ -12,7 +15,12 @@ const routes: Routes = [ // Routes évaluées dans l'ordre.
   },
 
   {
-    path: 'composant0_DuModule3',
+    path: 'membersPrivateZon',
+    component: Compo30Component,
+    outlet: "r2"
+  },
+  {
+    path: 'toto',
     component: Compo30Component,
     outlet: "xx"
   },
