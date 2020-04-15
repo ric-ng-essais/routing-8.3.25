@@ -73,8 +73,8 @@ const routes: Routes = [ // ATTENTION, les routes sont évaluées dans l'ordre,
       {
         path: 'membersPrivateZone', // Chemin total = '' + '/membersPrivateZone'
         component: OnlyForConnectedUserComponent,
-        canActivate: [OnlyForConnectedUsersGuard]
-        , outlet: "r2"
+        //canActivate: [OnlyForConnectedUsersGuard]
+        outlet: "r2"
       },
 
     ]

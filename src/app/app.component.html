@@ -29,17 +29,21 @@
 
   <br><br>
   <div>
-    <button id="connexion-btn" (click)="this.onClickConnexion()">{{this.getConnexionButtonLabel()}}</button><br>
-    <button [routerLink]="[{ outlets: {r2: ['membersPrivateZone']} }]"
-      (click)="this.onDemandeAccesToPrivateMembersZone()"
-    >Accéder à la zone des membres connectés</button>
+    <button id="connexion-btn" (click)="this.onClickConnexion()">{{this.getConnexionButtonLabel()}}</button>
+    <button (click)="this.onDemandeAccesToPrivateMembersZone()">
+    >
+      Accéder à la zone des membres connectés
+  </button>
   </div>
+
 
   <div id="test-multi-router-outlet">
     <a routerLink="test-multi-router-outlet">
         Test du MULTI &lt;router-outlet name="..."&gt;&lt;/router-outlet&gt;
     </a>
   </div>
+
+  <a [routerLink]="[{ outlets: {r2: ['membersPrivateZone']} }]">TESTER</a>
 
 </div>
 
