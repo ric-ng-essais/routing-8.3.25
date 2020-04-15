@@ -35,12 +35,6 @@
     >Accéder à la zone des membres connectés</button>
   </div>
 
-  <div>
-    <a [routerLink]='[{ outlets: { r2: ["C"] } }]'>C</a>
-  </div>
-  <div>
-    <a [routerLink]='[{ outlets: { r2: ["D"] } }]'>D</a>
-  </div>
 </div>
 
 
@@ -110,8 +104,4 @@
 <div class="asides-divs" id="router-div">
   <label>router-outlet 1, composant chargé :</label>
   <router-outlet></router-outlet>
-</div>
-
-<div class="asides-divs">
-  <router-outlet name='r2'></router-outlet>
 </div>
