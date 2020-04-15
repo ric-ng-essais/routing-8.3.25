@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  border: 6px orange solid;
+}
+
+fieldset {
+  margin: 7px;
+  margin-top: 15px;
+  border-color: rgb(255, 191, 72);
+}

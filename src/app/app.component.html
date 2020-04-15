@@ -30,9 +30,15 @@
   <br><br>
   <div>
     <button id="connexion-btn" (click)="this.onClickConnexion()">{{this.getConnexionButtonLabel()}}</button><br>
-    <button routerLink="membersPrivateZone"
+    <button [routerLink]="[{ outlets: {r2: ['membersPrivateZone']} }]"
       (click)="this.onDemandeAccesToPrivateMembersZone()"
     >Accéder à la zone des membres connectés</button>
+  </div>
+
+  <div id="test-multi-router-outlet">
+    <a routerLink="test-multi-router-outlet">
+        Test du MULTI &lt;router-outlet name="..."&gt;&lt;/router-outlet&gt;
+    </a>
   </div>
 
 </div>
@@ -101,7 +107,17 @@
 
 
 <!-- ---------------------------------------------------------------------- -->
-<div class="asides-divs" id="router-div">
-  <label>router-outlet 1, composant chargé :</label>
+<div class="asides-divs" id="main-router-div">
+  <label>AppModule router-outlet, voici le composant chargé :</label>
   <router-outlet></router-outlet>
 </div>
+
+<div class="asides-divs">
+  <label>AppModule router-outlet 2, voici le composant chargé :</label>
+  <router-outlet name="r2"></router-outlet>
+</div>
+
+<div style="font-weight:bold;">
+  NE PAS OUBLIER, &lt;base href="/" /&gt; dans le index.html.
+</div>
+

@@ -1,4 +1,5 @@
-a, button {
+a,
+button {
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -11,27 +12,37 @@ a, button {
   height: 630px;
   margin: 1px;
 }
+
 .asides-divs div {
   border-bottom: solid rgb(145, 255, 0) 3px;
   margin: 2px;
   padding: 3px;
   padding-bottom: 10px;
 }
+
 .asides-divs label {
   display: block;
   text-align: center;
   margin-bottom: 5px;
 }
 
-#router-div {
+#main-router-div {
   border: solid 5px red;
   margin-left: 15px;
 }
+#main-router-div label {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-decoration: underline;
+}
+
 #router-div label {
   text-decoration: underline;
 }
 
-#div1_inputs_compo3, #div2_inputs_compo3 {
+#div1_inputs_compo3,
+#div2_inputs_compo3 {
   text-align: center;
   margin: 10px;
   background-color: rgb(204, 141, 212);
@@ -60,9 +71,19 @@ a, button {
 }
 
 
- #connexion-btn {
-   width: 40%;
-   height: 40px;
-   border-color: pink;
-   margin-bottom: 3px;
- }
+#connexion-btn {
+  width: 40%;
+  height: 40px;
+  border-color: pink;
+  margin-bottom: 3px;
+}
+
+
+#test-multi-router-outlet {
+  font-weight: bold;
+  background-color: coral;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  margin-top: 25px;
+}
