@@ -76,6 +76,7 @@ const routes: Routes = [ // ATTENTION, les routes sont évaluées dans l'ordre,
         canActivate: [OnlyForConnectedUsersGuard]
       },
 
+
     ]
   },
 
@@ -85,7 +86,11 @@ const routes: Routes = [ // ATTENTION, les routes sont évaluées dans l'ordre,
   {
     path: 'myModule1',
     loadChildren: './modules/module1/module1.module#Module1Module'
-  }
+  },
+
+  { path: 'C', component: Compo2BisComponent, outlet: 'r2' },
+  { path: 'D', component: OnlyForConnectedUserComponent, outlet: 'r2' },
+
 
 ];
 
